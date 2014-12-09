@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 3.1.2'
 gem 'rails-assets-angularjs', '~> 1.3.2'
 gem 'rails-assets-ui-router', '~> 0.2.9'
+gem 'bcrypt', '~> 3.1.9'
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
