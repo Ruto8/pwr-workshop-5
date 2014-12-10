@@ -8,7 +8,9 @@ html ng-app="DigApp"
     /* = csrf_meta_tags */
   body
     = link_to "Sign up", sign_up_path
+    = link_to "Sign in", sign_in_path
     - if current_user
+      = link_to "Sign out", sign_out_path
       a href="/" INDEX
       hr
       div ui-view=""

@@ -1,4 +1,5 @@
 class Api::DigsController < ApplicationController
+
   def index
     render json: Dig.all
   end
@@ -8,7 +9,7 @@ class Api::DigsController < ApplicationController
   end
 
   def create
-    render json: Dig.create!(dig_params)
+    render json: current_user.digs.create!(dig_params)
   end
 
   def update
@@ -34,7 +35,7 @@ class Api::DigsController < ApplicationController
   end
 
   def comments
-    dig = Dig.find(params[:id])
+    dig = @current_user.digs.find(params[:id])
 
     render json: dig.comments
   end
@@ -45,7 +46,7 @@ class Api::DigsController < ApplicationController
 
   private
     def dig_params
-      params.require(:dig).permit(:title, :body, :owner_id)
+      params.require(:dig).permit(:title, :body)
     end
 end
 
