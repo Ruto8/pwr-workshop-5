@@ -1,5 +1,8 @@
 class Api::DigsController < ApplicationController
 
+  before_action :authenticate #list your actions in except array where you don't want to check for current user
+
+
   def index
     render json: Dig.all
   end
@@ -35,7 +38,7 @@ class Api::DigsController < ApplicationController
   end
 
   def comments
-    dig = @current_user.digs.find(params[:id])
+    dig = current_user.digs.find(params[:id])
 
     render json: dig.comments
   end
@@ -48,5 +51,9 @@ class Api::DigsController < ApplicationController
     def dig_params
       params.require(:dig).permit(:title, :body)
     end
+
+    def authenticate
+    redirect_to root_path, notice: "You must login first" if !current_user  # if current user doesn't exist it will redirect to your path with notice
+  end
 end
 

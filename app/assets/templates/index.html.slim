@@ -26,9 +26,6 @@ div ng-repeat="dig in digs"
       label Body
       textarea ng-model="dig.body"
       br
-      label Owner ID
-      input type="number" ng-model="dig.owner_id"
-      br
       input type="submit" value="Save"
       button type="button" ng-click="cancelEdit()" Cancel
 
@@ -42,9 +39,6 @@ form ng-submit="create()"
   br
   label Body
   textarea ng-model="newDig.body"
-  br
-  label Owner ID
-  input type="number" ng-model="newDig.owner_id"
   br
   input type="submit" value="Save"
 
